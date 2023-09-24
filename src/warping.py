@@ -64,6 +64,7 @@ def main(INPUT_IMG, OUTPUT_IMG):
 
     # write the plot to an image
     plt.savefig(OUTPUT_IMG)
+    print("DONE...")
 
 if __name__ == "__main__":
     DATA_DIRECTORY = "data/"
@@ -73,4 +74,5 @@ if __name__ == "__main__":
     os.mkdir(RESULTS_DIRECTORY)
     INPUT_IMAGE = DATA_DIRECTORY + "mug.jpg"
     OUTPUT_IMAGE = RESULTS_DIRECTORY + "transformed.jpg"
+    print("Run Affine Warping transformations......")
     main(INPUT_IMAGE, OUTPUT_IMAGE)
