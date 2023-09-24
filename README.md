@@ -23,7 +23,7 @@ Combining the red, green, and blue channels without shifting
 
 <img src="explore/no_shift.jpg">
 
-A better image can be achieved by using pyramids and cropping the edges
+A better image can be achieved by using alignment, pyramids and cropping the edges
 
 <img src="align_results/aligned_output.jpg">
 
