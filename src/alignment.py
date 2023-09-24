@@ -34,7 +34,7 @@ def explore(npys_dir, EXPLORE_DIR):
   np.save(os.path.join(EXPLORE_DIR, 'no_shift.npy'), image_array)
 
 # Image Alignment
-def main(DATA_DIR, RESULT_DIR, args):
+def main(DATA_DIR, RESULT_DIR):
     # 1. Load images (all 3 channels)
     red = np.load(DATA_DIR + 'red.npy')
     green = np.load(DATA_DIR + 'green.npy')
@@ -59,8 +59,5 @@ if __name__ == "__main__":
     if os.path.exists(RESULTS_DIRECTORY):
         shutil.rmtree(os.path.join(CWD, RESULTS_DIRECTORY))
     os.mkdir(RESULTS_DIRECTORY)
-
-    # CLI Args
-    parser = argparse.ArgumentParser(description='Script with options')
-    args = parser.parse_args()
-    main(DATA_DIRECTORY, RESULTS_DIRECTORY, args)
+    print('Run alignment......')
+    main(DATA_DIRECTORY, RESULTS_DIRECTORY)
