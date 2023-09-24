@@ -51,7 +51,7 @@ def best_alignment(img_1, img_2, heuristic, displacement):
 	return (best_dx, best_dy)
 
 # Multi Scale Alignment. Given two image pyramids, find the best alignment for image 1 compared to image 2, 
-# given a heuristic to compare two images (In this case, the SSD)
+# given a heuristic to compare two images (In this case, the NSSD)
 
 def align_pyramids(_pyramid_img_1, pyramid_img_2, heuristic, crop_percentage, displacement, scale):
 	# First, copy the first image pyramid to be sure we will not overwrite any input data.
@@ -60,10 +60,9 @@ def align_pyramids(_pyramid_img_1, pyramid_img_2, heuristic, crop_percentage, di
 	best_dx, best_dy = 0, 0
 	# Level by level, try to align the images using the single scale alignment
 	for image_1, image_2 in zip(reversed(pyramid_img_1), reversed(pyramid_img_2)):
-		# Whatever was the best alignment received from the last level, double it
+		# Whatever was the best alignment received from the last level, scale it
 		# This must be done because the amount of pixels in the new levels will be larger
-		# For each pixel in one level, there are 4 pixels in the next level
-		# This factor of 2 takes that in consideration for the aligment
+		# This factor of scale takes that in consideration for the aligment
 		best_dx *= scale
 		best_dy *= scale
 		# Translates the current image with the best alignment found
