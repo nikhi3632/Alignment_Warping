@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import os
 import shutil
 import imageio
-import argparse
 from PIL import Image
 
 def explore(npys_dir, EXPLORE_DIR):
